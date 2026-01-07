@@ -27,12 +27,13 @@ class Joueur:
         mc.setBlocks(x-taille,y,z+taille,x+taille,y+2,z+taille,45)
         mc.setBlocks(x-taille,y,z-taille,x-taille,y+2,z+taille,45)
         mc.setBlocks(x+taille,y,z-taille,x+taille,y+2,z+taille,45)
+        mc.setBlocks(x-taille,y-1,z-taille,x+taille,y-1,z+taille,45)
+        mc.setBlocks(x-taille,y+2,z-taille,x+taille,y+2,z+taille,45)
     def eau(self):
         """if (self.cooldown==False):"""
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         mc.setBlock(x,y+2,z,8)
-        mc.setBlock(x,0,z,0)
         """self.cooldown=True
         time.sleep(cooldown)
         self.cooldown=False"""

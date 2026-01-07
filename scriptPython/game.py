@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import pouvoirs
 import generation
 from mcpi.minecraft import *
+import time
 
 mc = Minecraft.create()
 
@@ -18,8 +19,6 @@ def on_connect(client,userdata,flags,rc):
 def on_message(client,userdata,msg):
     payload=msg.payload.decode()
     print(f"Received from {msg.topic}:{payload}")
-    
-
     
     match msg.topic:
         case "gantServer/index":
@@ -51,14 +50,5 @@ joueur2=pouvoirs.Joueur(joueurs[1])
 
 client.connect(broker,1883,60)
 client.loop_start()
-
-mc.postToChat("Enter /start to start the game")
-
-while True:
-    posts=mc.events.pollChatPosts()
-    for post in posts:
-        msg=post.message
-        if (msg=="/start"):
-            generation.gen()
-            exit()
+generation.gen()
         
