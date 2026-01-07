@@ -10,16 +10,17 @@ Lorsqu'un joueur se déplace, il devra savoir s'il se rapproche ou s'éloigne du
 
 Matériel utilisé:
 
-2 Rasberry Pi 4B
-2 ESP8266
-1 Router
-8 boutons pousoir
-2 breadboard
+2 Rasberry Pi 4B,
+ 2 ESP8266,
+ 1 Router,
+ 8 boutons pousoirs,
+ 2 breadboard
 
 Logiciel utilisé:
-Minecraft Pi Reborn
-IDE Python
-Arduino
-Minecraft: Pi edition API Python Library: 
-https://github.com/martinohanlon/mcpi
+
+Minecraft Pi Reborn,
+ IDE Python,
+ Arduino,
+ Minecraft: Pi edition API Python Library: 
+ https://github.com/martinohanlon/mcpi 
 
