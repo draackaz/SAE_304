@@ -67,4 +67,6 @@ def gen():
                     mc.postToChat("Player 1 wins !")
                 else :
                     mc.postToChat("Player 2 wins !")
-                exit()
+                exit() 
+"""on arrête le programe automatiquement quand un gagnant est déclaré
+le bloc de diamant n'a plus d'effet et les boutons non plus"""
