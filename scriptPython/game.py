@@ -4,9 +4,9 @@ import generation
 from mcpi.minecraft import *
 import time
 
-mc = Minecraft.create()
+mc = Minecraft.create() #instance de minecraft
 
-broker="localhost"
+broker="localhost" #parametres pour connexion mqtt
 port=1883
 username="gantServer"
 password="gantServer"
@@ -20,7 +20,7 @@ def on_message(client,userdata,msg):
     payload=msg.payload.decode()
     print(f"Received from {msg.topic}:{payload}")
     
-    match msg.topic:
+    match msg.topic: #en fonction du topic reçu du μc, on effectue une action
         case "gantServer/index":
             joueur1.cassage()
         case "gantServer/majeur":
@@ -39,21 +39,21 @@ def on_message(client,userdata,msg):
             joueur1.eau()
         
         
-client=mqtt.Client()
+client=mqtt.Client() 
 client.username_pw_set(username,password)
 client.on_connect=on_connect
 client.on_message=on_message
 
-joueurs=mc.getPlayerEntityIds()
+joueurs=mc.getPlayerEntityIds() #on récupère la liste des joueurs
 
-while (len(joueurs)<2):
+while (len(joueurs)<2): #si un seul joueur sur le monde
     mc.postToChat("Waiting for Player 2...")
     time.sleep(5)
     joueurs=mc.getPlayerEntityIds()
 
-joueur1=pouvoirs.Joueur(joueurs[0])
+joueur1=pouvoirs.Joueur(joueurs[0]) #on affecte les joueurs aux gants
 joueur2=pouvoirs.Joueur(joueurs[1])
 
-client.connect(broker,1883,60)
+client.connect(broker,1883,60) #connexion à mqtt
 client.loop_start()
-generation.gen()
+generation.gen() #début de la partie
