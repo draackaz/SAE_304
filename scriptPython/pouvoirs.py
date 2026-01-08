@@ -36,15 +36,15 @@ class Joueur:
         mc.setBlocks(x+taille,y,z-taille,x+taille,y+2,z+taille,45)
         mc.setBlocks(x-taille,y-1,z-taille,x+taille,y-1,z+taille,45)
         mc.setBlocks(x-taille,y+2,z-taille,x+taille,y+2,z+taille,45)
-    def eau(self):
+    def eau(self): #on place de l'eau au dessus du joueur
         """if (self.cooldown==False):"""
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         mc.setBlock(x,y+2,z,8)
-        """self.cooldown=True
+        """self.cooldown=True #test pour mettre un temps de recharge sur les pouvoirs
         time.sleep(cooldown)
         self.cooldown=False"""
-    """def paralysie(self):
+    """def paralysie(self): #test sur une paralysie du joueur non concluante
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         
@@ -53,9 +53,7 @@ class Joueur:
         while time.time() - debut < 3:
             mc.entity.setTilePos(self.id, x, y, z)
             time.sleep(0.1)"""
-    def distance(self,diamant_posx,diamant_posy,diamant_posz):
+    def distance(self,diamant_posx,diamant_posy,diamant_posz): #récupère la distance entre un joueur et le bloc de diamant
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         return math.sqrt((x-diamant_posx)**2+(y-diamant_posy)**2+(z-diamant_posz)**2)
-"""mc.player.setTilePos(25,31,25)
-joueur1.paralysie()"""  
