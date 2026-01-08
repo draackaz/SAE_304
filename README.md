@@ -29,6 +29,3 @@ Minecraft: Pi edition API Python Library:
  Vidéo démonstration:
  https://youtu.be/0frpB59Td1Q!
  
- [montage-projet](https://github.com/user-attachments/assets/a422887e-7d99-4502-b8de-36fd7c449ac5)
-
-
