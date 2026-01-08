@@ -38,7 +38,7 @@ void reconnect() {
       Serial.print("Echec, code d'erreur = ");
       Serial.print(client.state());
       Serial.println(" Reessai dans 5 secondes");
-      delay(5000);
+      delay(2500);
     }
   }
 }
@@ -74,7 +74,7 @@ void loop() {
     while(digitalRead(btn1) == LOW) { 
       yield(); 
     } 
-    delay(50);
+    delay(2500);
   }
 
   if (digitalRead(btn2) == LOW) {
@@ -83,7 +83,7 @@ void loop() {
     while(digitalRead(btn2) == LOW) { 
       yield(); 
     }
-    delay(50);
+    delay(2500);
   }
 
   if (digitalRead(btn3) == LOW) {
@@ -92,7 +92,7 @@ void loop() {
     while(digitalRead(btn3) == LOW) { 
       yield(); 
     }
-    delay(50);
+    delay(2500);
   }
 
   if (digitalRead(btn4) == LOW) {
@@ -101,6 +101,6 @@ void loop() {
     while(digitalRead(btn4) == LOW) { 
       yield(); 
     }
-    delay(50);
+    delay(2500);
   }
 }
