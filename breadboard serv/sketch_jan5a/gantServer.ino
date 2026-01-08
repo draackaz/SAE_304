@@ -16,7 +16,7 @@ PubSubClient client(esp);
 
 //mdp esp
 
-void setup_wifi() {
+void setup_wifi() { //Connexion au réseau local
   delay(10);
   Serial.print("\nConnexion a ");
   Serial.println(ssid);
@@ -42,12 +42,12 @@ void reconnect() {
   }
 }
 
-void setup() {
+void setup() { 
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
 
-  pinMode(btn1, INPUT_PULLUP);
+  pinMode(btn1, INPUT_PULLUP); //Préparation des boutons
   pinMode(btn2, INPUT_PULLUP);
   pinMode(btn3, INPUT_PULLUP);
   pinMode(btn4, INPUT_PULLUP);
@@ -56,7 +56,7 @@ void setup() {
 }
 
 void loop() {
-  if (!client.connected()) {
+  if (!client.connected()) { //connexion au client mqtt
     reconnect();
   }
   client.loop();
@@ -66,10 +66,10 @@ void loop() {
 //gantServeur/majeur
 //gantServeur/annulaire
 //gantServeur/auriculaire
-  if (digitalRead(btn1) == LOW) {
-    client.publish("gantServeur/index", "btn1");
+  if (digitalRead(btn1) == LOW) { //si bouton 1 appuyé
+    client.publish("gantServeur/index", "btn1"); //on publie sur un topic précis
     Serial.println("Action Envoyee: Bouton 1");
-    while(digitalRead(btn1) == LOW); delay(50);
+    while(digitalRead(btn1) == LOW); delay(50); //on évite les rebonds
   }
 
   if (digitalRead(btn2) == LOW) {
