@@ -48,7 +48,7 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, 1883);
 
-  pinMode(btn1, INPUT_PULLUP);
+  pinMode(btn1, INPUT_PULLUP); // Initialisation des boutons
   pinMode(btn2, INPUT_PULLUP);
   pinMode(btn3, INPUT_PULLUP);
   pinMode(btn4, INPUT_PULLUP);
@@ -67,40 +67,40 @@ void loop() {
 //gantClient/majeur
 //gantClient/annulaire
 //gantClient/auriculaire
-  if (digitalRead(btn1) == LOW) {
-    client.publish("gantClient/index", "btn1");
+  if (digitalRead(btn1) == LOW) { // Si le bouton 1 est appuyé
+    client.publish("gantClient/index", "btn1"); // On publie sur un topic précis
     Serial.println("Action: Index");
     // On ajoute yield() pour éviter le Soft WDT Reset pendant l'appui long
     while(digitalRead(btn1) == LOW) { 
       yield(); 
     } 
-    delay(2500);
+    delay(5000); // on ajoute un temps de recharge aux boutons
   }
 
-  if (digitalRead(btn2) == LOW) {
+  if (digitalRead(btn2) == LOW) { // Si le bouton 2 est appuyé
     client.publish("gantClient/majeur", "btn2");
     Serial.println("Action: Majeur");
     while(digitalRead(btn2) == LOW) { 
       yield(); 
     }
-    delay(2500);
+    delay(5000);
   }
 
-  if (digitalRead(btn3) == LOW) {
+  if (digitalRead(btn3) == LOW) { // Si le bouton 3 est appuyé
     client.publish("gantClient/annulaire", "btn3");
     Serial.println("Action: Annulaire");
     while(digitalRead(btn3) == LOW) { 
       yield(); 
     }
-    delay(2500);
+    delay(5000);
   }
 
-  if (digitalRead(btn4) == LOW) {
+  if (digitalRead(btn4) == LOW) { // Si le bouton 4 est appuyé
     client.publish("gantClient/auriculaire", "btn4");
     Serial.println("Action: Auriculaire");
     while(digitalRead(btn4) == LOW) { 
       yield(); 
     }
-    delay(2500);
+    delay(5000);
   }
 }
