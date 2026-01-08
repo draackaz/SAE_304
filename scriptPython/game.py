@@ -45,10 +45,15 @@ client.on_connect=on_connect
 client.on_message=on_message
 
 joueurs=mc.getPlayerEntityIds()
+
+while (len(joueurs)<2):
+    mc.postToChat("Waiting for Player 2...")
+    time.sleep(5)
+    joueurs=mc.getPlayerEntityIds()
+
 joueur1=pouvoirs.Joueur(joueurs[0])
 joueur2=pouvoirs.Joueur(joueurs[1])
 
 client.connect(broker,1883,60)
 client.loop_start()
 generation.gen()
-        

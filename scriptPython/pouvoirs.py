@@ -11,11 +11,18 @@ class Joueur:
     def cassage(self):
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
+        
         mc.setBlocks(x-2,y,z-2,x+2,y+2,z+2,0)
-        mc.setBlocks(-25,0,-25,-25,5,25,45)
-        mc.setBlocks(-25,0,-25,25,5,-25,45)
-        mc.setBlocks(25,0,-25,25,5,25,45)
-        mc.setBlocks(-25,6,25,25,6,25,89)
+        
+        mc.setBlocks(-25,0,-25,25,0,25,45) #on replace le sol
+        
+        mc.setBlocks(-25,14,-25,25,14,25,89) #on replace le toit
+        
+        mc.setBlocks(-25,0,-25,-25,14,25,45) #on replace les murs
+        mc.setBlocks(-25,0,-25,25,14,-25,45)
+        mc.setBlocks(25,0,-25,25,14,25,45)
+        mc.setBlocks(-25,0,25,25,14,25,45)
+        
     def slow(self):
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z

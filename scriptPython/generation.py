@@ -11,8 +11,8 @@ def gen():
 
     mc.postToChat("Welcome to the game. The rules are simple. Your goal is to find a diamond before your opponent.")
     mc.postToChat("To help you, you have access to bonuses and maluses to inflict to your opponent.")
-    mc.postToChat("You can only activate powers every 10 seconds.")
-    mc.postToChat("To win the game, you need to right-click on top of the diamond block with your sword.")
+    mc.postToChat("You can only activate powers every 5 seconds.")
+    mc.postToChat("To win the game, you need to stand on top of the diamond block.")
     mc.postToChat("Good luck and have fun !")
 
     mc.events.clearAll()
@@ -36,7 +36,7 @@ def gen():
     
     mc.setBlock(x,y,z,57) #bloc de diamant
     
-    mc.player.setTilePos(0,1,0)
+    #mc.player.setTilePos(0,1,0)
     
     diamant_pos=(x,y,z)
     victoire_pos=(x,y+1,z)
@@ -53,7 +53,7 @@ def gen():
                 exit()
         time.sleep(0.1)"""
         
-        if (time.time()-temps>=30):
+        if (time.time()-temps>=10):
             for player in mc.getPlayerEntityIds():
                 mc.postToChat("Player "+str(mc.getPlayerEntityIds().index(player)+1)+" is "+str(round(pouvoirs.Joueur(player).distance(*diamant_pos),2))+" blocks away from the diamond")
             temps=time.time()
