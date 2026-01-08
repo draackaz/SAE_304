@@ -7,8 +7,8 @@ mc = Minecraft.create()
 
 class Joueur:
     def __init__(self,identifiant):
-        self.id=identifiant
-    def cassage(self):
+        self.id=identifiant #utilisé pour différencier les joueurs
+    def cassage(self): #on casse les blocs autours du joueurs
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         
@@ -23,11 +23,11 @@ class Joueur:
         mc.setBlocks(25,0,-25,25,14,25,45)
         mc.setBlocks(-25,0,25,25,14,25,45)
         
-    def slow(self):
+    def slow(self): #on place des toiles d'araignée sous le joueur
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         mc.setBlocks(x-1,y,z-1,x+1,y,z+1,30)
-    def mur(self,taille):
+    def mur(self,taille): # on enferme le joueur
         coordonnees=mc.entity.getTilePos(self.id)
         x,y,z=coordonnees.x,coordonnees.y,coordonnees.z
         mc.setBlocks(x-taille,y,z-taille,x+taille,y+2,z-taille,45)
